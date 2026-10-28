@@ -1,0 +1,9 @@
+feature,unit,description,chat_class,min,max
+age,years,Age of the person,easy,5,30
+weight_kg,kg,Body weight,noisy,15,200
+height_cm,cm,Body height,noisy,100,210
+sleep_hours,hours/night,Average nightly sleep,easy,2,14
+sugary_drinks_per_week,count/week,Sugary drinks per week,easy,0,60
+activity_min_per_week,minutes/week,Physical activity minutes per week,easy,0,2000
+family_history_diabetes,0/1,Parent or sibling with diabetes (1=yes),easy,0,1
+hba1c,percent,HbA1c lab value,clinic_only,3,15

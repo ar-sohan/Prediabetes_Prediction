@@ -1,0 +1,16 @@
+seed: 42
+target: TARGET_COLUMN            # <- EDIT: name of your label column (0/1)
+paths:
+  train: data/train.csv          # <- your 70% split (numeric features only)
+  val: data/val.csv              # <- 15%
+  test: data/test.csv            # <- 15%
+  feature_spec: data/feature_spec.csv
+  models: models
+  results: results
+model:
+  calibration: isotonic          # isotonic | platt
+  min_features_for_score: 4      # below this -> "insufficient data"
+llm:
+  system_model: claude-sonnet-5-5   # system under test
+  sim_model: claude-haiku-5-5       # simulates users (different model than system)
+  judge_model: claude-sonnet-5-5
