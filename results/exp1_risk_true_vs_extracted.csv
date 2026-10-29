@@ -1,0 +1,5 @@
+cond,AUC_all_truth,AUC_true_revealed,AUC_extracted,mean_abs_prob_diff,corr
+clean,0.74,0.64,0.36,0.022,0.3
+vague,0.74,0.64,0.42,0.017,0.654
+partial,0.74,0.52,0.52,0.008,0.858
+messy,0.74,0.62,0.48,0.005,0.911

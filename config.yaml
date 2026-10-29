@@ -12,6 +12,13 @@ model:
   calibration: isotonic          # isotonic | platt
   min_features_for_score: 20      # below this -> "insufficient data"
 llm:
-  system_model: claude-sonnet-5-5   # system under test
-  sim_model: claude-haiku-5-5       # simulates users (different model than system)
-  judge_model: claude-sonnet-5-5
+  provider: openai_compatible
+  base_url: https://api.groq.com/openai/v1
+  api_key_env: GROQ_API_KEY
+  max_workers: 1
+  min_interval_sec: 4
+  system_model: openai/gpt-oss-120b
+  sim_model: openai/gpt-oss-20b
+  judge_model: openai/gpt-oss-120b
+  token_headroom: 2000
+  reasoning_effort: low

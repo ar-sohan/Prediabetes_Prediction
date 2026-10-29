@@ -17,8 +17,13 @@ jobs = [(i, c) for i in range(N) for c in CONDITIONS]
 def run(job):
     i, cond = job; truth = {f: float(sub.loc[i, f]) for f in spec.feature if f in sub and sub.loc[i, f] == sub.loc[i, f]}
     turns, revealed = generate(truth, spec, cond, seed=i)
-    return dict(i=i, cond=cond, revealed=revealed, truth=truth, ext=extract(turns, spec))
+    return dict(i=i, cond=cond, revealed=revealed, truth=truth, turns=turns, ext=extract(turns, spec))
 res = pmap(run, jobs, workers=8, desc="exp1")
+import json
+json.dump(res, open(results_dir() / "exp1_transcripts.json", "w"), indent=1, default=str)      # read these!
+miss = [dict(cond=r["cond"], row=r["i"], feature=f, truth=r["truth"][f], extracted=r["ext"][f]["value"])
+        for r in res for f in r["revealed"] if r["ext"][f]["value"] is None]
+pd.DataFrame(miss).to_csv(results_dir() / "exp1_misses.csv", index=False)
 
 rows = []
 for r in res:
