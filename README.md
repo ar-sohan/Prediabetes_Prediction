@@ -1,5 +1,4 @@
 # predm2-chat: LLM chat + longitudinal memory + risk model + JITAI (research prototype)
-
 ```
 config.yaml                 <- EDIT target column, model names
 data/feature_spec.csv       <- EDIT: one row per feature, chat_class = easy | noisy | clinic_only
@@ -30,16 +29,3 @@ python -m experiments.exp5_safety --agent
 python -m experiments.exp1_extraction 60  # Table 2  (LLM, ~240 conversations)
 python -m experiments.exp2_memory 20      # Table 3  (LLM, 20 personas x 6 sessions)
 ```
-
-## Bring your Colab model
-Export the three splits you already used and the column names:
-`train.to_csv("train.csv", index=False)` (same for val/test), upload to `data/`.
-Encode categoricals to numbers first. Edit `feature_spec.csv` so every feature column appears with its chat_class.
-Feature names in the spec must match the CSV columns exactly.
-
-## Honest-reporting notes
-- Exp4 uses ASSUMED user-response parameters: report them and the sensitivity table. Do not claim efficacy.
-- Exp5 patterns were tuned on the red-team list: write a SEPARATE held-out prompt set for the numbers you report.
-- Simulator LLM (haiku) differs from system LLM (sonnet); ideally use a different provider family for the simulator.
-- M1 (raw history) cannot honor deletion by design; that is part of the ablation.
-- Session transcripts do not depend on assistant replies (simplification); state this as a limitation.

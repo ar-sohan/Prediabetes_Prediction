@@ -36,10 +36,16 @@ def main():
     T, seed = CFG["target"], CFG["seed"]
     tr, va, te = [pd.read_csv(P(k)) for k in ("train", "val", "test")]
     spec = pd.read_csv(P("feature_spec"))
-    all_cols = [c for c in tr.columns if c != T]
+    excl = CFG.get("exclude", []) or []                      # ids / group labels that must never be features
+    all_cols = [c for c in tr.columns if c != T and c not in excl]
     bad = [c for c in all_cols if not pd.api.types.is_numeric_dtype(tr[c])]
     assert not bad, f"Encode these non-numeric columns first: {bad}"
     chat_cols = [c for c in spec[spec.chat_class.isin(["easy", "noisy"])].feature if c in all_cols]
+    unlisted = [c for c in all_cols if c not in set(spec.feature)]
+    if unlisted: print(f"WARNING: {len(unlisted)} CSV columns missing from feature_spec.csv: {unlisted[:10]}")
+    assert chat_cols, ("No chat-feasible features found. feature_spec.csv 'feature' names must match your CSV columns "
+                       "and chat_class must be 'easy' or 'noisy'. Run: python make_feature_spec.py")
+    print(f"{len(all_cols)} features in full model, {len(chat_cols)} in chat-feasible model")
 
     rows = []
     for c in all_cols:                                   # leakage screen: single-feature AUC

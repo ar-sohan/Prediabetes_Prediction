@@ -1,0 +1,53 @@
+{
+  "features": [
+    "AddSugars",
+    "BMXHT",
+    "BMXWAIST",
+    "BMXWT",
+    "PAminWk",
+    "ScreenTime",
+    "MealsOut",
+    "HOD050",
+    "RIDAGEYR",
+    "FamIncC",
+    "HIns4",
+    "MilkType",
+    "NwkMeals",
+    "TimesHCLastYr",
+    "HHSizCat",
+    "NwkBkfast",
+    "Milk30Days",
+    "DMDHRGND",
+    "AgeAsthma",
+    "FamPIRCat",
+    "HealthCond",
+    "FdInCH",
+    "HHRAge",
+    "HUQ020_1",
+    "RaceEth_2",
+    "RIAGENDR",
+    "NwkLunch",
+    "HHSmkNum",
+    "FdStmp",
+    "BMIcat"
+  ],
+  "tiers": {
+    "low_max": 0.1342281879194631,
+    "high_min": 0.2666666666666666
+  },
+  "best": "mean_top3",
+  "val_scores": {
+    "lr": 0.6682898709021678,
+    "xgb": 0.6592181313430119,
+    "lgb": 0.6602867829373087,
+    "cat": 0.6761429431069444,
+    "rf": 0.6601022129852968,
+    "mlp": 0.5747424027130941,
+    "mean_all": 0.6545187612406472,
+    "mean_top3": 0.6786662419029416,
+    "stack_all": 0.6771391151767068,
+    "stack_top3": 0.6784016073598742
+  },
+  "model_version": "core30_v1",
+  "seed": 42
+}

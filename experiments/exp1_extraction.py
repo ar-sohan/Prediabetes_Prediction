@@ -8,8 +8,10 @@ from src.util import pmap
 from src.simulate.conversation_gen import generate, CONDITIONS
 
 N = int(sys.argv[1]) if len(sys.argv) > 1 else 60
-T = CFG["target"]; spec = load_spec(); rm = RiskModel("chat")
-test = pd.read_csv(P("test")); sub = test.sample(N, random_state=CFG["seed"]).reset_index(drop=True)
+T = CFG["target"]; spec = load_spec(); rm = RiskModel("core")
+test = pd.read_csv(P("test"))
+# balanced sample (AUC is prevalence-invariant, so this gives a stable AUC with few rows)
+sub = pd.concat([test[test[T] == 1].sample(N // 2, random_state=CFG["seed"]), test[test[T] == 0].sample(N - N // 2, random_state=CFG["seed"])]).reset_index(drop=True)
 jobs = [(i, c) for i in range(N) for c in CONDITIONS]
 
 def run(job):
@@ -39,10 +41,12 @@ acc.round(3).to_csv(results_dir() / "table2_extraction.csv"); print(acc.round(3)
 cols = rm.meta["features"]; out = []
 for cond in CONDITIONS:
     rr = [r for r in res if r["cond"] == cond]
-    Xt = pd.DataFrame([{c: sub.loc[r["i"], c] if c in sub else np.nan for c in cols} for r in rr])
+    # truth restricted to the features actually revealed: isolates EXTRACTION error from missingness
+    Xt = pd.DataFrame([{c: (sub.loc[r["i"], c] if c in r["revealed"] else np.nan) for c in cols} for r in rr])
+    Xf = pd.DataFrame([{c: sub.loc[r["i"], c] for c in cols} for r in rr])       # all truth, for reference
     Xe = pd.DataFrame([{c: r["ext"][c]["value"] if c in r["ext"] else np.nan for c in cols} for r in rr])
     y = sub.loc[[r["i"] for r in rr], T].values
-    pt, pe = rm.score_batch(Xt), rm.score_batch(Xe)
-    out.append(dict(cond=cond, AUC_true=roc_auc_score(y, pt), AUC_extracted=roc_auc_score(y, pe),
+    pt, pe, pf = rm.score_batch(Xt), rm.score_batch(Xe), rm.score_batch(Xf)
+    out.append(dict(cond=cond, AUC_all_truth=roc_auc_score(y, pf), AUC_true_revealed=roc_auc_score(y, pt), AUC_extracted=roc_auc_score(y, pe),
                     mean_abs_prob_diff=float(np.mean(np.abs(pt - pe))), corr=float(np.corrcoef(pt, pe)[0, 1])))
 pd.DataFrame(out).round(3).to_csv(results_dir() / "exp1_risk_true_vs_extracted.csv", index=False); print(pd.DataFrame(out).round(3))

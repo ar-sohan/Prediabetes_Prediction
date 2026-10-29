@@ -1,9 +1,111 @@
 feature,unit,description,chat_class,min,max
-age,years,Age of the person,easy,5,30
-weight_kg,kg,Body weight,noisy,15,200
-height_cm,cm,Body height,noisy,100,210
-sleep_hours,hours/night,Average nightly sleep,easy,2,14
-sugary_drinks_per_week,count/week,Sugary drinks per week,easy,0,60
-activity_min_per_week,minutes/week,Physical activity minutes per week,easy,0,2000
-family_history_diabetes,0/1,Parent or sibling with diabetes (1=yes),easy,0,1
-hba1c,percent,HbA1c lab value,clinic_only,3,15
+SEQN,,REVIEW: unknown column,not_chat,0.0,111444.9
+MealsOut,meals/week,Number of meals per week not prepared at home,easy,-1.91,3.65
+SchBkfst_0,0/1,School breakfast category 0 (indicator),easy,0.0,1.1
+SchBkfst_1,0/1,School breakfast category 1 (indicator),easy,0.0,1.1
+SchBkfst_2,0/1,School breakfast category 2 (indicator),easy,0.0,1.1
+SchLunch_0,0/1,School lunch category 0 (indicator),easy,0.0,1.1
+SchLunch_1,0/1,School lunch category 1 (indicator),easy,0.0,1.1
+SchLunch_2,0/1,School lunch category 2 (indicator),easy,0.0,1.1
+NwkLunch,per week,School lunches eaten per week,easy,-1.41,1.24
+NwkBkfast,per week,School breakfasts eaten per week,easy,-0.82,2.33
+Milk30Days,category,How often the person drank milk in the past 30 days,easy,0.0,4.4
+SchMeal,category,Gets school meals,easy,0.0,2.2
+NwkMeals,per week,Number of school meals per week,easy,-2.15,1.36
+MilkType,category,Type of milk usually drunk,easy,0.0,4.4
+GTot,servings/day,Dietary recall component GTot (needs a 24-hour recall),not_chat,-2.65,10.27
+GRefine,servings/day,Dietary recall component GRefine (needs a 24-hour recall),not_chat,-4.04,4.24
+GWhole,servings/day,Dietary recall component GWhole (needs a 24-hour recall),not_chat,-1.23,5.77
+VTot,servings/day,Dietary recall component VTot (needs a 24-hour recall),not_chat,-2.19,5.52
+VDrkGr,servings/day,Dietary recall component VDrkGr (needs a 24-hour recall),not_chat,-1.41,12.45
+VRedOrTot,servings/day,Dietary recall component VRedOrTot (needs a 24-hour recall),not_chat,-1.7,7.55
+VRedOr,servings/day,Dietary recall component VRedOr (needs a 24-hour recall),not_chat,-1.47,12.49
+VTomato,servings/day,Dietary recall component VTomato (needs a 24-hour recall),not_chat,-1.73,8.65
+VStarchTot,servings/day,Dietary recall component VStarchTot (needs a 24-hour recall),not_chat,-1.41,6.02
+VStarchPot,servings/day,Dietary recall component VStarchPot (needs a 24-hour recall),not_chat,-1.36,6.32
+VStarchOth,servings/day,Dietary recall component VStarchOth (needs a 24-hour recall),not_chat,-1.79,16.24
+VOther,servings/day,Dietary recall component VOther (needs a 24-hour recall),not_chat,-1.53,6.85
+Legume,servings/day,Dietary recall component Legume (needs a 24-hour recall),not_chat,-1.39,11.18
+FTot,servings/day,Dietary recall component FTot (needs a 24-hour recall),not_chat,-1.53,5.47
+FCitMlB,servings/day,Dietary recall component FCitMlB (needs a 24-hour recall),not_chat,-1.36,6.95
+FOther,servings/day,Dietary recall component FOther (needs a 24-hour recall),not_chat,-1.27,6.57
+DTot,servings/day,Dietary recall component DTot (needs a 24-hour recall),not_chat,-2.33,5.68
+DMilk,servings/day,Dietary recall component DMilk (needs a 24-hour recall),not_chat,-1.78,6.57
+DYogurt,servings/day,Dietary recall component DYogurt (needs a 24-hour recall),not_chat,-1.72,17.02
+DCheese,servings/day,Dietary recall component DCheese (needs a 24-hour recall),not_chat,-1.61,5.37
+PTot,servings/day,Dietary recall component PTot (needs a 24-hour recall),not_chat,-2.93,4.24
+Pmps,servings/day,Dietary recall component Pmps (needs a 24-hour recall),not_chat,-2.67,5.11
+PMeat,servings/day,Dietary recall component PMeat (needs a 24-hour recall),not_chat,-1.34,4.39
+PFrank,servings/day,Dietary recall component PFrank (needs a 24-hour recall),not_chat,-1.24,5.56
+POrgan,servings/day,Dietary recall component POrgan (needs a 24-hour recall),not_chat,-2.91,31.05
+PPoult,servings/day,Dietary recall component PPoult (needs a 24-hour recall),not_chat,-1.35,6.0
+PFishLow,servings/day,Dietary recall component PFishLow (needs a 24-hour recall),not_chat,-1.19,9.88
+PFishHigh,servings/day,Dietary recall component PFishHigh (needs a 24-hour recall),not_chat,-1.75,17.53
+PEgg,servings/day,Dietary recall component PEgg (needs a 24-hour recall),not_chat,-1.15,6.02
+PSoy,servings/day,Dietary recall component PSoy (needs a 24-hour recall),not_chat,-1.97,19.21
+PNut,servings/day,Dietary recall component PNut (needs a 24-hour recall),not_chat,-1.23,8.86
+Oils,servings/day,Dietary recall component Oils (needs a 24-hour recall),not_chat,-2.93,3.32
+SolidFat,servings/day,Dietary recall component SolidFat (needs a 24-hour recall),not_chat,-2.53,10.58
+AddSugars,tsp-eq/day,Added sugar intake per day (approximate from sugary drinks and sweets),noisy,-4.39,3.83
+Alcohol,servings/day,Dietary recall component Alcohol (needs a 24-hour recall),not_chat,-1.37,13.01
+BMXWT,kg,Body weight (self-reported),noisy,-3.14,8.62
+BMXHT,cm,Body height (self-reported),noisy,-5.37,4.74
+BMXWAIST,cm,Waist circumference (self-measured),noisy,-3.14,6.54
+BMIcat,category,"BMI category (computed from weight, height, age, sex)",noisy,0.0,3.3
+HTChol,0/1,Ever told by a doctor of high cholesterol,easy,0.0,1.1
+hypten,0/1,Ever told by a doctor of high blood pressure,easy,0.0,1.1
+HUQ020_0,0/1,General health compared to last year: category 0,easy,0.0,1.1
+HUQ020_1,0/1,General health compared to last year: category 1,easy,0.0,1.1
+HUQ020_2,0/1,General health compared to last year: category 2,easy,0.0,1.1
+HUQ090,0/1,Saw a mental health professional in the past year,easy,0.0,1.1
+HealthCond,count,Number of reported health conditions,easy,0.0,2.2
+MCQ010,0/1,Ever told by a doctor of asthma,easy,0.0,1.1
+MCQ053,0/1,Treated for anemia recently,easy,0.0,1.1
+MCQ092,0/1,Ever received a blood transfusion,easy,0.0,1.1
+AgeAsthma,years,Age when asthma was first diagnosed,easy,-2.55,0.74
+StillAsthma,0/1,Still has asthma,easy,0.0,1.1
+Rx30Days,count,Number of prescription medicines taken in the past 30 days,easy,0.0,1.1
+PLimit,0/1,Has a physical limitation affecting activity,easy,0.0,2.2
+PAminWk,minutes/week,Physical activity minutes per week,easy,-2.25,2.01
+ScreenTime,hours/day,"Screen time per day (TV, computer, phone)",easy,-2.16,4.9
+HHSmkNum,count,Number of smokers in the household,easy,-0.86,3.64
+HHSmk,0/1,Anyone in the household smokes,easy,0.0,1.1
+Smk5Days,0/1,Person smoked in the past 5 days,easy,0.0,1.1
+RIAGENDR,0/1,Sex of the person (as coded in the dataset),easy,0.0,2.1
+RIDAGEYR,years,Age in years,easy,-1.83,1.86
+DMDCITZN,category,Citizenship status,easy,0.0,1.1
+DMDHRGND,category,Sex of the household reference person,easy,0.0,1.1
+CountBorn,category,Country of birth category,easy,0.0,1.1
+NatAcc,category,Acculturation: nativity category,easy,0.0,3.3
+EducGrp,category,Education group of the person,easy,0.0,2.2
+HHRAge,category,Age group of the household reference person,easy,0.0,3.3
+HHREdu,category,Education of the household reference person,easy,0.0,2.2
+HHSizCat,category,Household size category,easy,0.0,2.2
+FamIncC,category,Family income category,noisy,0.0,4.4
+FamPIRCat,category,Family income to poverty ratio category,noisy,0.0,3.3
+RaceEth_0,0/1,Race/ethnicity category 0 (indicator),easy,0.0,1.1
+RaceEth_1,0/1,Race/ethnicity category 1 (indicator),easy,0.0,1.1
+RaceEth_2,0/1,Race/ethnicity category 2 (indicator),easy,0.0,1.1
+RaceEth_3,0/1,Race/ethnicity category 3 (indicator),easy,0.0,1.1
+LangAcc,category,Acculturation: language category,easy,0.0,2.2
+AccScore,score,Acculturation score (survey-derived),not_chat,0.0,5.5
+FdInHH,category,Household food security status,easy,0.0,3.3
+FdInCH,category,Child food security status,easy,0.0,3.3
+FdInAD,category,Adult food security status,easy,0.0,3.3
+FdStmp,0/1,Household receives food stamps (SNAP),easy,0.0,1.1
+WIC,0/1,Receives WIC benefits,easy,0.0,1.1
+Hager2Q,category,Two-question household food insecurity screener,easy,0.0,1.1
+HOD050,count,Number of rooms in the home,easy,-2.98,3.82
+HOQ065_0,0/1,Home ownership category 0 (indicator),easy,0.0,1.1
+HOQ065_1,0/1,Home ownership category 1 (indicator),easy,0.0,1.1
+HOQ065_2,0/1,Home ownership category 2 (indicator),easy,0.0,1.1
+HIns4,0/1,Has health insurance,easy,0.0,3.3
+OvntPT,0/1,Had an overnight hospital stay in the past year,easy,0.0,1.1
+RoutineHCplace,0/1,Has a routine place for health care,easy,0.0,1.1
+TypeHCplace_0,0/1,Type of health care place 0 (indicator),easy,0.0,1.1
+TypeHCplace_1,0/1,Type of health care place 1 (indicator),easy,0.0,1.1
+TypeHCplace_2,0/1,Type of health care place 2 (indicator),easy,0.0,1.1
+TimesHCLastYr,count,Number of health care visits in the past year,easy,0.0,3.3
+InSchool,0/1,Currently attends school,easy,0.0,1.1
+Pesticide,0/1,Pesticide used in the home,easy,0.0,1.1
+grp,,REVIEW: unknown column,not_chat,0.0,10745.8
